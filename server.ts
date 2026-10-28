@@ -214,6 +214,8 @@ app.get('/api/health', async (_req: Request, res: Response) => {
 // PUBLIC NEWS & HOMEPAGE INTELLIGENCE ENDPOINTS
 // ============================================================================
 
+let isBackgroundSyncRunning = false;
+
 app.get('/api/homepage', async (_req: Request, res: Response) => {
   try {
     const cached = getCached<any>('homepage_payload');
@@ -226,6 +228,21 @@ app.get('/api/homepage', async (_req: Request, res: Response) => {
       .from(articles)
       .orderBy(desc(articles.publishedAt))
       .limit(220);
+
+    // If the most recent article was ingested more than 20 minutes ago, trigger a background sync
+    const newestIngestMs = allArticles.reduce((max, a) => {
+      const t = a.ingestedAt ? new Date(a.ingestedAt).getTime() : 0;
+      return t > max ? t : max;
+    }, 0);
+    if (!isBackgroundSyncRunning && Date.now() - newestIngestMs > 20 * 60 * 1000) {
+      isBackgroundSyncRunning = true;
+      runIngestionPipeline({ enrichTopWithAi: false })
+        .then(() => clearServerCache())
+        .catch((err) => console.error('Auto-refresh ingestion error:', err))
+        .finally(() => {
+          isBackgroundSyncRunning = false;
+        });
+    }
 
     const allSummaries = await db.select().from(aiSummaries);
     const summaryByArticleId = new Map(allSummaries.map((s) => [s.articleId, s]));

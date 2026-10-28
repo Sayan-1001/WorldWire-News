@@ -658,10 +658,18 @@ export async function ensureSeededAndIngested(): Promise<void> {
       ]);
     }
 
-    // 8. Run live ingestion pipeline to fetch real articles from configured RSS/GDELT providers
-    const currentArticleCount = await db.select({ value: count() }).from(articles);
-    if ((currentArticleCount[0]?.value || 0) < 5) {
-      console.log('Running initial live news ingestion pipeline for WORLDWIRE...');
+    // 8. Run live ingestion pipeline if database is empty OR if the latest ingested article is older than 15 minutes
+    const latestArticles = await db
+      .select()
+      .from(articles);
+    const latestIngestedMs = latestArticles.reduce((max, a) => {
+      const t = a.ingestedAt ? new Date(a.ingestedAt).getTime() : 0;
+      return t > max ? t : max;
+    }, 0);
+    const isStale = Date.now() - latestIngestedMs > 15 * 60 * 1000;
+
+    if (latestArticles.length < 5 || isStale) {
+      console.log('Running live news ingestion pipeline to synchronize latest dispatches...');
       await runIngestionPipeline({ enrichTopWithAi: false });
     } else {
       const sportsArticleCount = await db
@@ -672,6 +680,24 @@ export async function ensureSeededAndIngested(): Promise<void> {
         console.log('Running live Sports desk ingestion for BBC Sport and The Hindu Sport...');
         await runIngestionPipeline({ providerSlug: 'bbc-sport', enrichTopWithAi: false });
         await runIngestionPipeline({ providerSlug: 'the-hindu-sport', enrichTopWithAi: false });
+      }
+    }
+
+    // Keep upcoming global calendar dates rolling forward if any seeded event date has passed
+    const allCalendarEvents = await db.select().from(upcomingEvents);
+    const nowMs = Date.now();
+    const dayMs = 24 * 60 * 60 * 1000;
+    for (let i = 0; i < allCalendarEvents.length; i++) {
+      const ev = allCalendarEvents[i];
+      if (new Date(ev.endDate).getTime() < nowMs) {
+        const offsetDays = (i + 1) * 3;
+        await db
+          .update(upcomingEvents)
+          .set({
+            startDate: new Date(nowMs + offsetDays * dayMs),
+            endDate: new Date(nowMs + (offsetDays + 2) * dayMs),
+          })
+          .where(eq(upcomingEvents.id, ev.id));
       }
     }
 
