@@ -1,0 +1,8 @@
+{
+  "name": "WORLDWIRE — Global News Intelligence & Live Event Tracker",
+  "description": "AI-powered international news platform delivering verified global reporting, multi-source developing event timelines, transparent editorial ranking, and daily intelligence briefings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

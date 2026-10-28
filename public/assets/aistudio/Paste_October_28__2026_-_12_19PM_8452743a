@@ -1,0 +1,879 @@
+PROJECT: BUILD A COMPLETE AI-POWERED GLOBAL NEWS PLATFORM
+
+Act as a senior full-stack engineer, product designer, AI engineer, database architect, and news-platform specialist.
+
+Build a complete, modern, production-oriented global news website and application called WORLDWIRE. The name should be easy to change from a central configuration file.
+
+Do not merely generate a UI mockup, landing page, or static prototype. Build a functional application with a polished frontend, real news data integration, backend logic, AI-powered news processing, data persistence, error handling, and deployment-ready architecture.
+
+I will provide the API keys and credentials required for external services. You must handle the rest of the implementation, integration, configuration templates, database structure, API routes, and setup instructions. Never ask me to manually implement code that you can implement yourself.
+
+If a required external service needs an account, credentials, billing activation, or manual authorization, prepare everything possible and give me the exact steps needed to complete that requirement.
+
+Do not falsely claim that an integration works until it has been implemented and tested to the extent possible.
+
+1. PRODUCT VISION
+
+Create a centralized global news intelligence platform that helps users understand the most important events happening around the world.
+
+The platform must collect news from reliable sources, organize it by importance and subject, group multiple reports about the same event, generate concise AI-powered bulletins, track developing stories, and present a clear picture of what is happening globally.
+
+The product should combine the usefulness of a major international news website, a breaking-news service, a global events tracker, and an AI-powered daily briefing platform.
+
+The core goals are:
+
+Deliver important world news and breaking updates.
+Keep news fresh and display accurate publication and update times.
+Separate major developments from routine stories.
+Help users understand what happened, why it matters, and what is known so far.
+Show different credible perspectives on significant events.
+Provide country-wise, regional, and topic-specific coverage.
+Track major international events and their developments over time.
+Use AI to summarize, classify, cluster, and prioritize news responsibly.
+Deliver a fast, accessible, mobile-responsive experience.
+Provide a foundation that can later support native mobile applications.
+
+Do not restrict the platform to one country. It must be designed for worldwide coverage, with India included as an important regional edition.
+
+2. DESIGN AND USER EXPERIENCE
+
+Create a premium editorial design inspired by the clarity of leading international news organizations and modern digital publications. Do not copy any specific publisher's branding or exact layout.
+
+The visual identity should communicate credibility, urgency, clarity, and sophistication.
+
+Design requirements:
+
+Clean editorial typography.
+White or warm-neutral backgrounds with deep navy text and a restrained red breaking-news accent.
+Optional dark mode.
+Strong headline hierarchy.
+Generous spacing and readable line lengths.
+High-quality news photographs where legally available.
+Clear publication timestamps and source attribution.
+Subtle animations and transitions.
+Professional loading skeletons, empty states, and error states.
+Responsive layouts for desktop, tablet, and mobile.
+Accessible color contrast, keyboard navigation, and semantic HTML.
+A polished mobile navigation system and desktop navigation bar.
+No excessive gradients, oversized decorative elements, or generic AI-generated dashboard aesthetics.
+
+Use reusable components, a consistent design system, and centralized theme settings.
+
+The application must look like a real editorial product populated with real data, not a generic SaaS dashboard.
+
+3. HOMEPAGE
+
+Build a complete homepage with the following sections.
+
+A. Top navigation
+
+Include:
+
+WorldWire logo and home link.
+World.
+India.
+Politics.
+Business.
+Technology.
+Science.
+Health.
+Climate.
+Sports.
+Search.
+Saved stories.
+User profile or account controls when authentication is enabled.
+Light/dark theme toggle.
+
+On mobile, use a clean, compact navigation menu.
+
+B. Breaking news ticker
+
+Display important breaking stories in a visible but nonintrusive ticker or alert strip.
+
+Requirements:
+
+Display only stories that meet the breaking-news criteria.
+Show the time of the latest update.
+Link each headline to its story page.
+Automatically refresh the feed.
+Allow an administrator to mark a story as breaking.
+Remove or downgrade outdated alerts.
+Never fabricate breaking-news alerts when no verified stories are available.
+C. Lead story
+
+Feature the most important currently developing story with:
+
+A large image when available and licensed.
+A clear headline.
+A concise summary.
+Country or region.
+Topic category.
+Source and publication time.
+A link to the full story.
+An explanation of why the event matters.
+A developing-story indicator when applicable.
+
+The lead story should be selected using transparent editorial ranking logic, not simply whichever article was published most recently.
+
+D. Top global headlines
+
+Show a curated selection of major global developments.
+
+Use a responsive editorial grid with a mixture of lead stories, compact headlines, and image cards.
+
+Each story card should show:
+
+Headline.
+Short summary.
+Source.
+Publication time.
+Category.
+Country or region.
+Optional image.
+A save/bookmark control.
+E. Today's top 10
+
+Create a dedicated section titled "Today's 10 Most Important Stories."
+
+Rank stories using factors such as:
+
+Global significance.
+Human impact.
+Number and quality of independent sources.
+Geographic reach.
+Severity and urgency.
+Novelty of the development.
+Reliability of available reporting.
+
+Avoid ranking based solely on clicks, sensational language, or the number of duplicate articles.
+
+Explain briefly why each story matters.
+
+F. Latest news feed
+
+Provide a chronological feed of new reports, including:
+
+Headline.
+Short description.
+Source.
+Original publication time.
+Last updated time, when available.
+Category and location.
+Pagination or infinite scrolling.
+Refresh controls.
+Filters for country, topic, source, and time range.
+
+Prevent duplicate stories from flooding the feed.
+
+G. World at a glance
+
+Create a global overview featuring:
+
+Major developments by continent.
+Country-specific headline summaries.
+Important geopolitical developments.
+Elections and government changes.
+Conflicts and humanitarian emergencies.
+International diplomacy.
+Economic developments.
+Major natural disasters and extreme weather events.
+Significant scientific and technological discoveries.
+
+Use an interactive world map if practical, with clickable regions and accessible list-based alternatives.
+
+Do not imply that the map represents complete real-time coverage when the underlying data is incomplete.
+
+H. Other homepage sections
+
+Include:
+
+Business and markets.
+Technology and artificial intelligence.
+Science and space.
+Climate and environment.
+Health and medicine.
+Sports.
+Important upcoming events.
+Most-read or trending stories, clearly distinguished from editorial importance.
+Daily briefing.
+News explained.
+Developing stories.
+Newsletter signup, if email infrastructure is configured.
+
+Each section must link to a dedicated category page.
+
+4. NEWS CATEGORIES AND COUNTRY PAGES
+
+Implement dedicated, filterable pages for the following topics:
+
+World.
+India.
+Politics.
+Business and economy.
+Financial markets.
+Technology and AI.
+Science and research.
+Space and astronomy.
+Health and medicine.
+Climate and environment.
+Energy.
+Conflicts and security.
+International relations.
+Elections.
+Education.
+Society and culture.
+Sports.
+Disasters and emergencies.
+
+Create country and regional pages with configurable geographic coverage.
+
+Examples include India, United States, United Kingdom, China, Russia, European Union, Middle East, Africa, South Asia, East Asia, and Latin America.
+
+Country pages should include:
+
+Latest headlines.
+Top developments.
+Local and national political developments.
+Economy and business.
+International relations.
+Relevant developing stories.
+Country-specific search and filters.
+
+Use a normalized country and region taxonomy rather than hardcoding country logic throughout the application.
+
+5. BREAKING NEWS AND LIVE EVENT TRACKING
+
+Build a complete developing-story system.
+
+A developing story may contain reports from multiple publishers about the same event.
+
+Each event page should contain:
+
+Event title.
+Concise overview.
+Current status.
+Key facts.
+Known and unconfirmed information, clearly separated.
+Chronological timeline.
+Latest updates.
+Related articles from multiple sources.
+Important people, organizations, and locations when reliably identified.
+Relevant background and context.
+Last verification or refresh time.
+Source links.
+
+New reports about an existing event should be attached to its event record instead of generating unnecessary duplicate event pages.
+
+Support event statuses such as developing, ongoing, monitoring, and concluded.
+
+Do not automatically label an event concluded simply because no new articles have appeared for a short period.
+
+Provide an admin override for event status and breaking-news priority.
+
+6. AI-POWERED NEWS BULLETINS
+
+Use the AI model and API key I provide for supported news-processing tasks.
+
+Build AI features that can:
+
+Summarize individual news articles into concise bulletins.
+Generate a headline without changing the original meaning.
+Categorize articles.
+Identify countries, regions, organizations, and topics.
+Group multiple reports about the same event.
+Detect near-duplicate articles.
+Rank significant developments.
+Explain why a story matters.
+Generate daily and hourly news briefings.
+Produce background explainers based on retrieved sources.
+Compare reporting across multiple publishers.
+Identify conflicting claims and missing information.
+Generate accessible summaries in multiple languages when configured.
+Suggest follow-up developments worth monitoring.
+
+Provide multiple summary formats:
+
+One-line headline.
+30-second briefing.
+Short bulletin.
+Detailed summary.
+What happened?
+Why it matters.
+What we know.
+What remains uncertain.
+What to watch next.
+
+AI must never invent facts, quotations, sources, article URLs, statistics, or event details.
+
+When the available sources do not support a conclusion, the system should say that the information is unclear or unavailable.
+
+Do not present AI-generated predictions as established facts.
+
+For medical, legal, financial, armed-conflict, election, and emergency reporting, use especially cautious language and preserve direct links to credible primary sources.
+
+AI summaries must retain source attribution and links to the original reporting.
+
+7. NEWS SOURCES AND API INTEGRATION
+
+Design a flexible news ingestion system that supports multiple providers.
+
+Potential integrations include:
+
+NewsAPI or another licensed news aggregation API.
+GDELT for international news monitoring and event data.
+RSS and Atom feeds from reputable publishers.
+Official government and public agency announcements.
+Central bank and statistical agency releases.
+Scientific journals and research institutions.
+Official weather and emergency alert services.
+Sports data providers when sports coverage is enabled.
+
+Do not assume that every provider is free or permits full-text redistribution.
+
+Implement provider-specific adapters behind a common internal interface so new providers can be added without rewriting the application.
+
+Each adapter should support, where available:
+
+Fetching articles.
+Retrieving metadata.
+Publication timestamps.
+Source names.
+Canonical URLs.
+Article images.
+Categories.
+Language and country.
+Pagination.
+Provider rate limits.
+Error handling.
+Retry logic.
+
+Use provider documentation to implement the actual API request formats.
+
+Do not fabricate API endpoints, response structures, or credentials.
+
+Allow me to supply the API keys and select which providers are enabled.
+
+If a provider cannot be configured until I supply a key, build the integration and configuration form first.
+
+Create a source-management interface where an administrator can enable or disable providers, view their status, and inspect recent ingestion errors.
+
+Use official sources and reputable reporting wherever possible. Support source diversity rather than relying entirely on one provider.
+
+8. ARTICLE PROCESSING PIPELINE
+
+Implement the following processing pipeline:
+
+Fetch articles from configured sources.
+Validate and normalize incoming data.
+Convert timestamps to a consistent format while displaying local time appropriately.
+Normalize URLs and source names.
+Remove exact duplicates.
+Detect near-duplicate articles.
+Classify articles by topic and geography.
+Match related reports to existing events.
+Generate AI summaries where permitted.
+Calculate an importance score.
+Determine whether a story meets breaking-news criteria.
+Store the processed article and associated metadata.
+Update category feeds and event timelines.
+Record processing status and errors.
+
+Make processing idempotent so rerunning a job does not create duplicate articles, summaries, or events.
+
+Use scheduled background jobs and provider-aware refresh intervals.
+
+Prioritize breaking-news sources for more frequent updates while keeping less time-sensitive categories on a reasonable schedule.
+
+Do not run continuous polling in a user's browser or repeatedly fetch all sources on every page load.
+
+Respect API quotas, rate limits, provider terms, caching rules, and robots or access restrictions where applicable.
+
+Implement exponential backoff for transient errors and avoid repeated retries of permanent failures.
+
+9. NEWS IMPORTANCE AND STORY CLUSTERING
+
+Create a transparent news-ranking engine.
+
+Use a weighted score based on:
+
+Source reliability.
+Severity and public impact.
+Global or regional significance.
+Independent corroboration.
+Recency of the actual development.
+Novelty.
+Geographic reach.
+Relevance to the selected category or country.
+
+Separate editorial importance from popularity.
+
+Avoid treating the number of syndicated copies as independent confirmation.
+
+Track the original publication time separately from the time an article was ingested and the time an event was last updated.
+
+When multiple publishers report the same event, show the range of sources without counting every duplicate as a separate event.
+
+Make scoring weights configurable by administrators.
+
+Display a brief explanation of why a story has been selected for the top headlines.
+
+10. ARTICLE DETAIL PAGE
+
+Every article must have a dedicated page with:
+
+Headline.
+Optional subheading.
+Source name and link.
+Author attribution where available.
+Original publication date and time.
+Last updated time.
+Featured image with proper attribution when required.
+AI-generated summary, clearly labeled.
+Main article content only when legally permitted.
+Key facts.
+Why it matters.
+Related developments.
+Related articles from other sources.
+Event timeline, where applicable.
+Share controls.
+Bookmark control.
+Category and geographic tags.
+Corrections or update notices when relevant.
+
+If full-text republication is not permitted, show an original summary, available licensed metadata, and a clear link to the publisher's original article.
+
+Do not scrape paywalled articles or bypass publisher access restrictions.
+
+Do not invent author names or image credits.
+
+11. SEARCH AND DISCOVERY
+
+Implement global search across available articles, summaries, events, and categories.
+
+Include:
+
+Keyword search.
+Country filters.
+Topic filters.
+Date range.
+Source filter.
+Event-based search.
+Sorting by relevance, recency, and importance.
+Suggested related searches.
+Useful no-results states.
+
+If semantic search is implemented, use embeddings or another suitable retrieval method only when the infrastructure supports it.
+
+Search must operate on stored application data rather than relying entirely on repeated live API requests.
+
+12. DAILY BRIEFING AND NEWS EXPLAINED
+
+Build an AI briefing feature that produces a digest of the most important developments over a selected period.
+
+Include:
+
+Morning briefing.
+Evening briefing.
+Last 24 hours.
+Weekly world review.
+Country-specific briefing.
+Topic-specific briefing.
+
+Each briefing should summarize distinct events, not simply list duplicate articles.
+
+Include a short explanation of why each event matters, the latest known development, and links to supporting sources.
+
+Show the coverage period and the time the briefing was generated.
+
+Do not invent a complete briefing if the available source coverage is limited.
+
+Create a "News Explained" section for background explainers, timelines, and context. Clearly distinguish background information from new developments.
+
+13. UPCOMING EVENTS CALENDAR
+
+Create a dedicated global events calendar for significant upcoming developments.
+
+Possible event types include:
+
+Elections.
+International summits.
+Central bank meetings.
+Major economic data releases.
+Government announcements.
+Space launches.
+Major sporting events.
+Scientific milestones.
+Scheduled public policy decisions.
+
+Each event should include, where available:
+
+Name.
+Date and time.
+Time zone.
+Location.
+Event category.
+Official source.
+Importance.
+Current status.
+Related news coverage.
+
+Use official schedules or reputable event data providers whenever possible.
+
+Clearly distinguish scheduled events from events whose dates are tentative.
+
+Never invent an event or claim a date is confirmed without a reliable source.
+
+Provide list, calendar, and category views.
+
+14. PERSONALIZATION AND NOTIFICATIONS
+
+Build the architecture for optional user accounts and personalized news.
+
+When authentication is enabled, allow users to:
+
+Save articles.
+Follow countries and topics.
+Choose preferred languages.
+Maintain reading history where appropriate.
+Create a personalized homepage.
+Configure notification preferences.
+
+Support important breaking-news notifications through a suitable notification provider when configured.
+
+Use importance thresholds and deduplication to avoid notification spam.
+
+Allow users to turn off notifications and control their preferences.
+
+Do not require an account merely to read public news.
+
+If authentication or push notifications require extra credentials, build the feature boundaries and explain the remaining configuration steps.
+
+15. ADMIN DASHBOARD
+
+Build a secure administrative dashboard.
+
+Include:
+
+Overview of article ingestion.
+Total articles and event counts.
+Recently processed articles.
+Provider health and API errors.
+Source configuration.
+Article review queue.
+Breaking-news management.
+Event management.
+Duplicate and event-clustering corrections.
+AI summary review.
+Source reliability configuration.
+Importance-ranking settings.
+Category and country management.
+Scheduled job status.
+Cache and processing statistics.
+Manual refresh controls.
+Audit logs.
+User and role management if authentication is enabled.
+
+Administrators should be able to edit headlines, correct classifications, remove incorrect summaries, merge duplicate events, and override automated decisions.
+
+Protect all administrative APIs with server-side authorization. Never rely solely on hiding frontend buttons.
+
+Do not create a default publicly accessible admin account with a hardcoded password.
+
+16. TECHNICAL ARCHITECTURE
+
+Choose a modern, maintainable technology stack compatible with Google AI Studio's supported application generation and execution environment.
+
+Preferred approach:
+
+Frontend:
+
+React.
+TypeScript.
+A modern routing solution.
+Tailwind CSS or an equivalent consistent styling system.
+Reusable, accessible UI components.
+
+Backend:
+
+A secure server-side API layer.
+TypeScript/Node.js or another suitable backend runtime.
+Server-side provider adapters.
+Background ingestion and processing jobs.
+
+Database:
+
+PostgreSQL with appropriate indexes and migrations, or a managed relational database compatible with the chosen hosting platform.
+
+Optional infrastructure:
+
+A managed queue for ingestion and AI processing.
+Redis or an equivalent cache where useful.
+Object storage only when required.
+A scheduling service for recurring jobs.
+An observability and error-reporting integration.
+
+Select the simplest robust architecture that meets the requirements. Do not add infrastructure that is unnecessary for the initial launch.
+
+Use strict TypeScript types, schema validation, modular services, and clear separation of concerns.
+
+Build reusable API clients and shared data models.
+
+Provide database migrations, indexes, seed scripts, and documented environment variables.
+
+Do not place all business logic inside frontend components.
+
+17. API KEY AND SECRET MANAGEMENT
+
+I will provide the API keys.
+
+Create a clear configuration system for all required secrets.
+
+Examples of environment variable names may include:
+
+NEWS_API_KEY= GDELT_API_BASE_URL= GEMINI_API_KEY= DATABASE_URL= AUTH_SECRET= REDIS_URL= NOTIFICATION_PROVIDER_KEY=
+
+These are examples, not claims that every provider requires a key. Use the actual configuration required by the selected integrations.
+
+Critical requirements:
+
+Never hardcode real secrets into source code.
+Never expose server-side keys in browser JavaScript.
+Never embed privileged API keys in client-side environment variables.
+Route privileged external API requests through the backend.
+Validate configuration at startup.
+Provide an example environment file with placeholder values only.
+Add environment files containing secrets to the appropriate ignore rules.
+Validate user input and restrict external requests to prevent SSRF and related attacks.
+Apply rate limits to sensitive application endpoints.
+Provide a safe way to configure secrets in the deployment environment.
+Never print secrets in application logs or error messages.
+
+If the Gemini API key is supplied through Google AI Studio's managed environment, use the supported secret-management mechanism for that environment.
+
+Clearly distinguish the AI model API key from the news data provider keys. One key must not be assumed to grant access to unrelated services.
+
+18. DATABASE DESIGN
+
+Design normalized tables or equivalent data models for:
+
+Articles.
+News sources.
+Events and event timelines.
+Article-event relationships.
+Categories.
+Countries and regions.
+AI summaries.
+Source reliability settings.
+Bookmarks.
+User preferences.
+Notification subscriptions.
+Scheduled job runs.
+Provider ingestion logs.
+Editorial corrections.
+Administrative audit logs.
+
+Use stable identifiers, canonical URLs, timestamps, unique constraints, and appropriate indexes.
+
+Store original source metadata separately from AI-generated content.
+
+Track processing status and model metadata for generated summaries where useful.
+
+Support article expiration, retention policies, and provider-specific deletion requirements.
+
+Do not store more personal information than is needed.
+
+19. PERFORMANCE, RELIABILITY, AND SECURITY
+
+Implement:
+
+Server-side caching.
+Efficient pagination.
+Lazy loading for images.
+Responsive image handling.
+Database query optimization.
+Rate limiting.
+Input validation.
+Safe error responses.
+Secure headers.
+Authorization checks.
+Protection against common injection and cross-site scripting risks.
+Dependency and secret hygiene.
+Graceful handling of provider outages.
+Health-check endpoints.
+Structured logging.
+Basic monitoring hooks.
+Retry and timeout policies.
+Accessible loading, empty, and error states.
+
+The homepage should remain usable if one news provider is temporarily unavailable.
+
+Never show fabricated news to fill empty space.
+
+If real-time data cannot be retrieved, display a clear data-unavailable message or the most recent cached data with its actual timestamp.
+
+Treat all fetched article text as untrusted input. Never allow instructions embedded in articles to change system prompts, reveal secrets, or trigger unauthorized tool calls.
+
+20. LEGAL AND EDITORIAL RESPONSIBILITY
+
+Design the application to support responsible news presentation.
+
+Preserve links to original publishers.
+Follow the licensing terms of each provider.
+Do not assume all article text and photographs may be republished.
+Display source names and attribution.
+Clearly label AI-generated summaries.
+Distinguish verified facts, allegations, opinions, and uncertain claims.
+Avoid unsupported accusations and misleading headlines.
+Correct factual errors promptly.
+Maintain a record of significant editorial changes.
+Avoid creating false corroboration through duplicated or syndicated reports.
+Do not claim comprehensive worldwide coverage unless the source network supports that claim.
+Include configurable privacy, terms, contact, corrections, and editorial policy pages.
+
+The platform must not pretend that AI verification replaces independent reporting or human editorial judgment.
+
+21. SEO AND SOCIAL SHARING
+
+Implement:
+
+Search-engine-friendly article URLs.
+Dynamic page titles and descriptions.
+Canonical URLs.
+XML sitemap generation.
+Robots.txt.
+Appropriate structured data for news articles when eligible.
+Open Graph and social sharing metadata.
+RSS feeds for selected public categories where permitted.
+Correct handling of pagination and expired content.
+Fast server-rendered or statically generated pages where appropriate.
+
+Do not index private admin pages or expose user-specific content to search engines.
+
+22. TESTING AND QUALITY ASSURANCE
+
+Write tests for:
+
+API provider adapters.
+Data normalization.
+Duplicate detection.
+Event clustering.
+Importance ranking.
+AI output validation.
+Database operations.
+Authentication and authorization.
+Administrative endpoints.
+Article rendering.
+Search and filtering.
+Error handling.
+Rate limits and missing API keys.
+
+Use mock fixtures for automated tests rather than depending on live provider quotas.
+
+Run the available type checks, linting, tests, and production build.
+
+Fix the errors you encounter instead of merely reporting them.
+
+Do not claim that live API integrations have been verified if valid credentials were not available.
+
+23. IMPLEMENTATION STRATEGY
+
+Work in the following sequence.
+
+Phase 1: Foundation
+
+Inspect the available development environment.
+Establish the application architecture.
+Create the frontend, routing, design system, and responsive homepage.
+Define shared types and configuration.
+Set up the backend structure.
+
+Phase 2: Real news integration
+
+Implement the first news provider end to end.
+Build server-side API routes.
+Implement article normalization, caching, pagination, and error handling.
+Add the provider configuration workflow.
+Display real articles and source links.
+
+Phase 3: Data persistence
+
+Implement the database schema and migrations.
+Add ingestion jobs and processing status.
+Implement duplicate detection and persistent event records.
+
+Phase 4: AI processing
+
+Integrate the provided AI model API.
+Implement summaries, categorization, event grouping, and importance ranking.
+Validate structured AI outputs.
+Preserve source attribution and track processing failures.
+
+Phase 5: Complete product features
+
+Implement category pages, country pages, article pages, event timelines, search, briefings, and the events calendar.
+Build the admin dashboard.
+Add authentication and notifications if configured.
+
+Phase 6: Production readiness
+
+Run tests and the production build.
+Fix discovered issues.
+Verify responsive behavior and accessibility.
+Add SEO, logging, security protections, and health checks.
+Document deployment and configuration.
+
+Prioritize a working end-to-end vertical slice over generating many disconnected screens.
+
+24. CRITICAL INSTRUCTIONS FOR EXECUTION
+
+You are expected to build the actual application, not simply explain how it could be built.
+
+Begin by inspecting the capabilities of the current environment and selecting a compatible architecture.
+
+Then implement the application directly in the available project workspace.
+
+Do not stop after producing a plan, design description, or folder structure.
+
+Do not replace required functionality with decorative buttons, fake API calls, hardcoded article arrays, or placeholder success messages.
+
+Use a clearly labeled demo mode only when real credentials or live data are unavailable. Keep demo data separate from production data, and never present fictional articles as real news.
+
+When a feature cannot be completed because it depends on an external credential, unavailable hosting capability, or manual account authorization, finish every independent part and explain the exact remaining requirement.
+
+If a feature cannot be implemented in the current environment, state the limitation and provide the most practical compatible implementation rather than silently omitting it.
+
+Make sensible technical decisions without repeatedly asking me to choose implementation details.
+
+If the project is too large to complete in one pass, continue incrementally, preserving existing working code and implementing the next highest-priority missing functionality. Do not repeatedly restart the project or overwrite working features.
+
+At the end, provide:
+
+A summary of what has actually been implemented.
+The application structure.
+All required environment variables.
+Instructions for supplying API keys securely.
+Database setup and migration instructions.
+Instructions for running the application.
+Instructions for deploying the frontend, backend, and scheduled jobs.
+A list of integrations that have been tested and those still awaiting credentials.
+Any remaining limitations.
+A prioritized list of next steps.
+FINAL ACCEPTANCE CRITERIA
+
+The project is acceptable only when:
+
+The frontend is polished, responsive, and navigable.
+The homepage can display real news from at least one configured provider.
+Article cards link to valid source or article pages.
+News categories and search work against real stored data.
+AI summaries are generated through the configured model API when credentials are available.
+Duplicate articles are handled.
+Developing events can contain multiple related reports and a chronological timeline.
+Important stories can be ranked using configurable logic.
+The admin dashboard is protected by server-side authorization.
+API secrets are not exposed to the browser.
+Provider failures are handled gracefully.
+Database setup, environment configuration, testing, and deployment instructions are included.
+Any incomplete feature or external dependency is explicitly disclosed.
+
+Start implementing WORLDWIRE now. Build the frontend and the functional backend foundation together, and prioritize a real, working news experience over superficial visual completeness.
